@@ -1,7 +1,10 @@
 ---
+title: Foo
 nav:
-  title: Components
   path: /components
+  title: Foo
+group:
+  path: /components/Foo
 ---
 
 ## Foo

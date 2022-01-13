@@ -2,11 +2,15 @@
 title: Modal
 nav:
   path: /components
-  title: Modal
+  title: Modal2
   order: 1
+group:
+  path: /components/Modal
+  title: Components
+  order: 2
 ---
 
-## Button
+## Modal
 
 Demo:
 
@@ -14,7 +18,7 @@ Demo:
 import React from 'react';
 import { Button } from 'fish-ui';
 
-export default () => <Button>Button</Button>;
+export default () => <Button>Modal</Button>;
 ```
 
 More skills for writing demo: https://d.umijs.org/guide/basic#write-component-demo
