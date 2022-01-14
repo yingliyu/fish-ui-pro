@@ -1,13 +1,11 @@
 ---
-title: Foo
-nav:
-  path: /components
-  title: Foo
+title: Icon
+
 group:
-  path: /components/Foo
+  path: /components
 ---
 
-## Foo
+## Icon
 
 Demo:
 

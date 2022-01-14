@@ -1,12 +1,8 @@
 ---
 title: Modal
-nav:
-  path: /components
-  title: Modal2
-  order: 1
+
 group:
-  path: /components/Modal
-  title: Components
+  path: /feedback
   order: 2
 ---
 
