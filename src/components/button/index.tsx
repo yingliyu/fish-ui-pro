@@ -2,12 +2,13 @@
  * @Author: ylyu
  * @Date: 2021-12-28 21:31:41
  * @LastEditors: ylyu
- * @LastEditTime: 2022-01-14 17:46:08
+ * @LastEditTime: 2022-01-17 18:12:16
  * @Description:
  */
 import React from 'react';
 import { Button as AntdButton } from 'antd';
 import classNames from 'classnames';
+// import './indes.less';
 
 declare type ButtonHTMLType = 'submit' | 'button' | 'reset';
 declare const ButtonTypes: ['default', 'primary', 'ghost', 'dashed', 'link', 'text'];

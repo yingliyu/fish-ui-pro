@@ -2,11 +2,11 @@
  * @Author: ylyu
  * @Date: 2022-01-13 16:40:45
  * @LastEditors: ylyu
- * @LastEditTime: 2022-01-14 17:24:54
+ * @LastEditTime: 2022-01-17 18:12:07
  * @Description:
  */
 import { defineConfig } from 'dumi';
-
+// const path = require('path');
 function getMenus(opts: { lang?: string; base: '/components' | '/docs' }) {
   const menus = {
     '/docs': [
@@ -25,11 +25,7 @@ function getMenus(opts: { lang?: string; base: '/components' | '/docs' }) {
       {
         title: 'Common',
         'title_zh-CN': '通用',
-        children: [
-          '/components/common/Button',
-          '/components/common/Icon',
-          '/components/common/Typography',
-        ],
+        children: ['/components/button', '/components/icon', '/components/typography'],
       },
       {
         title: 'Layout',
@@ -38,20 +34,20 @@ function getMenus(opts: { lang?: string; base: '/components' | '/docs' }) {
           '/components/layout/Divider',
           '/components/layout/Grid',
           '/components/layout/Layout',
-          '/components/layout/Space',
+          '/components/space',
         ],
       },
-      {
-        title: 'Nav',
-        'title_zh-CN': '导航',
-        children: [
-          '/components/nav/Header',
-          '/components/nav/Footer',
-          '/components/nav/Menu',
-          '/components/nav/Breadcrumb',
-          '/components/nav/Pagination',
-        ],
-      },
+      // {
+      //   title: 'Nav',
+      //   'title_zh-CN': '导航',
+      //   children: [
+      //     '/components/nav/Header',
+      //     '/components/nav/Footer',
+      //     '/components/nav/Menu',
+      //     '/components/nav/Breadcrumb',
+      //     '/components/nav/Pagination',
+      //   ],
+      // },
     ],
   };
   return (menus[opts.base] as [])?.map((menu: any) => {
@@ -94,14 +90,31 @@ export default defineConfig({
     '/components': getMenus({ base: '/components' }),
   },
   // more config: https://d.umijs.org/config
+  //  按需加载 antd
   extraBabelPlugins: [
     [
-      'import',
+      'babel-plugin-import',
       {
         libraryName: 'antd',
         libraryDirectory: 'es',
         style: true,
       },
     ],
+    // [
+    //   'import',
+    //   {
+    //     libraryName: 'piatto',
+    //     libraryDirectory: '',
+    //     customStyleName: (name) => path.resolve(__dirname, `src/${name}/index.less`),
+    //   },
+    // ],
   ],
+  // chainWebpack: (config) => {
+  //   // console.log('webpack Config===', config.toConfig());
+  //   config.module
+  //     .rule()
+  //     .test(/\.less$/)
+  //     .use('less-loader');
+  //   return config;
+  // },
 });
