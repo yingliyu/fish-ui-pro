@@ -1,7 +1,7 @@
 {
   "private": false,
-  "name": "fish-ui",
-  "version": "1.0.0",
+  "name": "fish-ui-pro",
+  "version": "1.0.2",
   "description": "A library of react components",
   "author": "yingliyu",
   "license": "MIT",
@@ -14,6 +14,14 @@
     "type": "git",
     "url": "https://github.com/yingliyu/fish-ui.git"
   },
+  "files": [
+    "docs-dist",
+    "es"
+  ],
+  "sideEffects": [
+    "docs-dist/*",
+    "*.less"
+  ],
   "scripts": {
     "start": "dumi dev",
     "docs:build": "dumi build",
@@ -56,5 +64,9 @@
     "prettier": "^2.2.1",
     "react-docgen-typescript": "^2.2.2",
     "yorkie": "^2.0.0"
+  },
+  "peerDependencies": {
+    "react": ">=16.12.0",
+    "antd": ">=4.18.0"
   }
 }
