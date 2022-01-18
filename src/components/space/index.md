@@ -17,6 +17,8 @@ export default () => (
   <Space>
     <Button>Button</Button>
     <Button>Button</Button>
+    <span>text</span>
+    <span>text</span>
   </Space>
 );
 ```
