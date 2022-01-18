@@ -2,32 +2,43 @@
  * @Author: ylyu
  * @Date: 2021-12-28 21:31:41
  * @LastEditors: ylyu
- * @LastEditTime: 2022-01-17 18:12:16
+ * @LastEditTime: 2022-01-18 10:55:23
  * @Description:
  */
 import React from 'react';
 import { Button as AntdButton } from 'antd';
 import classNames from 'classnames';
-// import './indes.less';
+import './index.less';
 
 declare type ButtonHTMLType = 'submit' | 'button' | 'reset';
 declare const ButtonTypes: ['default', 'primary', 'ghost', 'dashed', 'link', 'text'];
 export declare type ButtonType = typeof ButtonTypes[number];
 
 interface IABSButtonProps {
+  /**设置按钮载入状态 */
   loading?: boolean;
+  /**
+   * 设置危险按钮
+   * @default false
+   */
   danger?: boolean;
   className?: string;
+  /**按钮类型 */
   type?: ButtonType;
   style?: React.CSSProperties;
   icon?: React.ReactNode;
   children?: React.ReactNode;
+  /**
+   * 按钮失效状态
+   * @default false
+   */
   disabled?: boolean;
   block?: boolean;
   large?: boolean;
   htmlType?: ButtonHTMLType;
-  onClick?: React.MouseEventHandler<HTMLButtonElement>;
+  /**按钮颜色 */
   color?: 'blue' | 'red' | 'yellow' | 'green' | 'white';
+  onClick?: React.MouseEventHandler<HTMLButtonElement>;
 }
 
 const Button: React.FC<IABSButtonProps> = (props: IABSButtonProps) => {
@@ -47,10 +58,10 @@ const Button: React.FC<IABSButtonProps> = (props: IABSButtonProps) => {
     color,
   } = props;
 
-  let classes = classNames('abs-btn', className, {
-    'abs-btn-large': large,
-    'abs-btn-block': block,
-    'abs-btn-link': type === 'link',
+  let classes = classNames('fish-btn', className, {
+    'fish-btn-large': large,
+    'fish-btn-block': block,
+    'fish-btn-link': type === 'link',
   });
   const displayStyle = block ? 'block' : 'inline-block';
 
@@ -68,10 +79,10 @@ const Button: React.FC<IABSButtonProps> = (props: IABSButtonProps) => {
         newTpye = 'default';
         break;
       case 'yellow':
-        classes = classNames(classes, 'abs-yellow-btn');
+        classes = classNames(classes, 'fish-yellow-btn');
         break;
       case 'green':
-        classes = classNames(classes, 'abs-green-btn');
+        classes = classNames(classes, 'fish-green-btn');
         break;
       default:
         break;

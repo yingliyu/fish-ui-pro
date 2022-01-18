@@ -32,18 +32,14 @@ import { Button, Space } from 'fish-ui';
 
 export default () => (
   <Space>
-    <Button>Button</Button>
     <Button color="white">Button</Button>
     <Button color="blue">Button</Button>
     <Button color="red">Button</Button>
     <Button color="yellow">Button</Button>
     <Button color="green">Button</Button>
+    <Button>Button</Button>
   </Space>
 );
 ```
 
-### API
-
-| 属性   | 说明         | 类型    | 默认值 |
-| :----- | :----------- | :------ | :----- |
-| danger | 设置危险按钮 | boolean | false  |
+<API></API>

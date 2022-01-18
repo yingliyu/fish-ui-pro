@@ -1,0 +1,12 @@
+.abs-btn.abs-btn-block {
+  width: 200px;
+}
+.abs-btn.abs-btn-link .ant-btn-link {
+  padding: 0;
+}
+.abs-btn.abs-yellow-btn .abs-btn {
+  color: yellow;
+}
+.abs-btn.abs-green-btn .abs-btn {
+  color: green;
+}

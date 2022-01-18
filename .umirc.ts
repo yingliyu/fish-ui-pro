@@ -2,11 +2,11 @@
  * @Author: ylyu
  * @Date: 2022-01-13 16:40:45
  * @LastEditors: ylyu
- * @LastEditTime: 2022-01-17 18:12:07
+ * @LastEditTime: 2022-01-18 10:08:52
  * @Description:
  */
 import { defineConfig } from 'dumi';
-// const path = require('path');
+const path = require('path');
 function getMenus(opts: { lang?: string; base: '/components' | '/docs' }) {
   const menus = {
     '/docs': [
@@ -90,6 +90,7 @@ export default defineConfig({
     '/components': getMenus({ base: '/components' }),
   },
   // more config: https://d.umijs.org/config
+  lessLoader: { javascriptEnabled: true },
   //  按需加载 antd
   extraBabelPlugins: [
     [
@@ -109,12 +110,36 @@ export default defineConfig({
     //   },
     // ],
   ],
-  // chainWebpack: (config) => {
-  //   // console.log('webpack Config===', config.toConfig());
-  //   config.module
-  //     .rule()
-  //     .test(/\.less$/)
-  //     .use('less-loader');
-  //   return config;
-  // },
+  chainWebpack: (config, { webpack }) => {
+    // console.log('webpack Config===', config.toConfig());
+    config.merge({
+      module: {
+        rules: [
+          {
+            test: /\.less$/i,
+            use: [
+              'style-loader',
+              {
+                loader: 'css-loader',
+                options: {
+                  sourceMap: true,
+                },
+              },
+              {
+                loader: 'less-loader',
+                options: {
+                  javascriptEnabled: true,
+                  lessOptions: {
+                    paths: [path.resolve(__dirname, 'src')],
+                  },
+                },
+              },
+            ],
+          },
+        ],
+      },
+    });
+
+    return config;
+  },
 });
