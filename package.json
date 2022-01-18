@@ -1,7 +1,19 @@
 {
-  "private": true,
+  "private": false,
   "name": "fish-ui",
   "version": "1.0.0",
+  "description": "A library of react components",
+  "author": "yingliyu",
+  "license": "MIT",
+  "keywords": [
+    "React",
+    "Component"
+  ],
+  "homepage": "https://yingliyu.github.io/fish-ui",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yingliyu/fish-ui.git"
+  },
   "scripts": {
     "start": "dumi dev",
     "docs:build": "dumi build",

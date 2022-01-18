@@ -5,29 +5,29 @@
 Install dependencies,
 
 ```bash
-$ npm i
+$ yarn
 ```
 
 Start the dev server,
 
 ```bash
-$ npm start
+$ yarn start
 ```
 
 Build documentation,
 
 ```bash
-$ npm run docs:build
+$ yarn run docs:build
 ```
 
 Run test,
 
 ```bash
-$ npm test
+$ yarn test
 ```
 
 Build library via `father-build`,
 
 ```bash
-$ npm run build
+$ yarn run build
 ```
