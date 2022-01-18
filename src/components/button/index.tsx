@@ -2,7 +2,7 @@
  * @Author: ylyu
  * @Date: 2021-12-28 21:31:41
  * @LastEditors: ylyu
- * @LastEditTime: 2022-01-18 10:55:23
+ * @LastEditTime: 2022-01-18 13:21:20
  * @Description:
  */
 import React from 'react';
@@ -26,6 +26,7 @@ interface IABSButtonProps {
   /**按钮类型 */
   type?: ButtonType;
   style?: React.CSSProperties;
+  /**设置按钮的图标组件 */
   icon?: React.ReactNode;
   children?: React.ReactNode;
   /**
