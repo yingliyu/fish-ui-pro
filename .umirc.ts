@@ -2,7 +2,7 @@
  * @Author: ylyu
  * @Date: 2022-01-13 16:40:45
  * @LastEditors: ylyu
- * @LastEditTime: 2022-01-18 14:31:58
+ * @LastEditTime: 2022-01-18 14:43:05
  * @Description:
  */
 import { defineConfig } from 'dumi';
@@ -63,7 +63,7 @@ export default defineConfig({
   title: 'fish-ui',
   hash: true,
   base: '/fish-ui',
-  publicPath: '/fish-ui/',
+  publicPath: '/fish-ui',
   favicon: 'https://img.alicdn.com/tfs/TB1YHEpwUT1gK0jSZFhXXaAtVXa-28-27.svg',
   logo: 'https://img.alicdn.com/tfs/TB1YHEpwUT1gK0jSZFhXXaAtVXa-28-27.svg',
   outputPath: 'docs-dist',
