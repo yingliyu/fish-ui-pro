@@ -7,7 +7,7 @@ group:
 
 ## Icon
 
-Demo:
+代码演示
 
 ```tsx
 import React from 'react';
