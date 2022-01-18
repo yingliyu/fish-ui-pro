@@ -1,0 +1,48 @@
+name: Deploy Github Pages # Actions 名字
+
+on: # 触发条件
+  push:
+    branches:
+      - master # 仅向 master 分支 push 时触发
+
+jobs:
+  build: # job id
+    name: Build and publish # job 名，不写默认使用 job id
+    runs-on: ubuntu-latest # 运行环境，可选 ubuntu-latest, ubuntu-18.04, ubuntu-16.04, windows-latest, windows-2019, windows-2016, macOS-latest, macOS-10.14
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Use Node.js 14.x
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14.x
+
+      - name: Setup  env
+        run: |
+          npm install
+      - name: Generate public files
+        run: |
+          npm run docs:build
+      # 发布到 github pages 上
+      - name: Auto Deploy
+        env:
+          GH_REF: github.com/yingliyu/fish-ui.git
+          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }} # github token
+          GITEE_REF: gitee.com/ylyubook/fish-ui.git
+          GITEE_TOKEN: ${{ secrets.GITEE_TOKEN}} # gitee token
+        run: |
+          git config --global user.name "yingliyu"
+          git config --global user.email "404997046@qq.com"
+          git clone https://${GH_REF} .deploy_git
+          cd .deploy_git
+          git checkout gh-pages
+          cd ../
+          mv .deploy_git/.git/ ./docs-dist
+          cd ./docs-dist
+          git add .
+          git commit -m ":construction_worker:CI built at `date +"%Y-%m-%d %H:%M:%S"`"
+          # GitHub Pages
+          git push --force --quiet "https://${ACCESS_TOKEN}@${GH_REF}" gh-pages:gh-pages
+          # Gitee Pages 
+          git push --force --quiet "https://ylyubook:${GITEE_TOKEN}@${GITEE_REF}" gh-pages:gh-pages
