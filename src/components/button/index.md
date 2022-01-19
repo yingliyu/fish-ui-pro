@@ -6,7 +6,7 @@ group:
   order: 1
 ---
 
-## Button 按钮
+# Button 按钮
 
 响应用户点击行为，触发相应的业务逻辑。
 
@@ -25,7 +25,7 @@ export default () => (
 );
 ```
 
-### 按钮颜色
+## 按钮颜色
 
 ```tsx
 import React from 'react';
