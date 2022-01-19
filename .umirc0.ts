@@ -2,11 +2,10 @@
  * @Author: ylyu
  * @Date: 2022-01-13 16:40:45
  * @LastEditors: ylyu
- * @LastEditTime: 2022-01-19 10:46:35
+ * @LastEditTime: 2022-01-19 10:24:03
  * @Description:
  */
 import { defineConfig } from 'dumi';
-const path = require('path');
 function getMenus(opts: { lang?: string; base: '/components' | '/docs' }) {
   const menus = {
     '/docs': [
@@ -71,7 +70,7 @@ export default defineConfig({
     },
     {
       title: 'GitHub',
-      path: 'https://github.com/umijs/umi',
+      path: 'https://github.com/yingliyu/fish-ui',
     },
   ],
   menus: {
@@ -92,37 +91,5 @@ export default defineConfig({
         style: true,
       },
     ],
-    // [
-    //   'import',
-    //   {
-    //     libraryName: 'piatto',
-    //     libraryDirectory: '',
-    //     customStyleName: (name) => path.resolve(__dirname, `src/${name}/index.less`),
-    //   },
-    // ],
   ],
-  chainWebpack: (config, { webpack }) => {
-    console.log('webpack Config===', config.toConfig());
-    config.merge({
-      module: {
-        rules: [
-          {
-            test: /\.less$/i,
-            use: [
-              {
-                loader: 'less-loader',
-                options: {
-                  javascriptEnabled: true,
-                  // lessOptions: {
-                  //   paths: [path.resolve(__dirname, 'src')],
-                  // },
-                },
-              },
-            ],
-          },
-        ],
-      },
-    });
-    return config;
-  },
 });
