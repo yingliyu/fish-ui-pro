@@ -12,7 +12,7 @@ Demo:
 
 ```tsx
 import React from 'react';
-import { Button } from 'fish-ui-pro';
+import { Button } from 'fish-ui';
 
 export default () => <Button>Button</Button>;
 ```

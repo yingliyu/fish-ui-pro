@@ -11,7 +11,7 @@ Demo:
 
 ```tsx
 import React from 'react';
-import { Divider } from 'fish-ui-pro';
+import { Divider } from 'fish-ui';
 
 export default () => <Divider>Text</Divider>;
 ```

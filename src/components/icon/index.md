@@ -11,7 +11,7 @@ group:
 
 ```tsx
 import React from 'react';
-import { Foo } from 'fish-ui-pro';
+import { Foo } from 'fish-ui';
 
 export default () => <Foo title="First Demo" />;
 ```

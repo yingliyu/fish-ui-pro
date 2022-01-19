@@ -2,7 +2,7 @@
  * @Author: ylyu
  * @Date: 2022-01-13 16:40:45
  * @LastEditors: ylyu
- * @LastEditTime: 2022-01-19 15:04:44
+ * @LastEditTime: 2022-01-19 15:13:43
  * @Description:
  */
 import { defineConfig } from 'dumi';

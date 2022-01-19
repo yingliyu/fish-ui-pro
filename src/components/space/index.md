@@ -11,7 +11,7 @@ group:
 
 ```tsx
 import React from 'react';
-import { Button, Space } from 'fish-ui-pro';
+import { Button, Space } from 'fish-ui';
 
 export default () => (
   <Space>
