@@ -14,7 +14,7 @@ group:
 
 ```tsx
 import React from 'react';
-import { Button, Space } from 'fish-ui';
+import { Button, Space } from 'fish-ui-pro';
 
 export default () => (
   <Space>
@@ -29,7 +29,7 @@ export default () => (
 
 ```tsx
 import React from 'react';
-import { Button, Space } from 'fish-ui';
+import { Button, Space } from 'fish-ui-pro';
 
 export default () => (
   <Space>
