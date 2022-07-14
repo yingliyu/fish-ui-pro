@@ -2,7 +2,7 @@
   "private": false,
   "name": "fish-ui",
   "version": "1.0.2",
-  "description": "A library of react components",
+  "description": "🎉A react ui component library based on AntDesign",
   "author": "yingliyu",
   "license": "MIT",
   "keywords": [

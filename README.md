@@ -1,4 +1,6 @@
-# fish-ui
+# fish-ui-pro
+
+🎉A react ui component library based on AntDesign.
 
 ## Getting Started
 
