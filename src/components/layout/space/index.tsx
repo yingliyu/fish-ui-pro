@@ -2,7 +2,7 @@
  * @Author: ylyu
  * @Date: 2022-01-14 17:38:05
  * @LastEditors: ylyu
- * @LastEditTime: 2022-01-17 16:25:05
+ * @LastEditTime: 2022-07-14 16:01:38
  * @Description:
  */
 import React from 'react';
@@ -15,6 +15,7 @@ export interface SpaceProps extends React.HTMLAttributes<HTMLDivElement> {
   className?: string;
   style?: React.CSSProperties;
   size?: SpaceSize | [SpaceSize, SpaceSize];
+  /**方向 */
   direction?: 'horizontal' | 'vertical';
   // No `stretch` since many components do not support that.
   align?: 'start' | 'end' | 'center' | 'baseline';

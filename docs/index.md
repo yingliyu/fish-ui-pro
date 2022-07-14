@@ -1,6 +1,6 @@
 ---
 hero:
-  title: fish-ui
+  title: Fish-UI
   desc: fish-ui site example
   actions:
     - text: Getting Started
@@ -18,4 +18,4 @@ features:
 footer: Open-source MIT Licensed | Copyright © 2020<br />Powered by [dumi](https://d.umijs.org)
 ---
 
-## Hello fish-ui!
+## Hello Fish-ui!

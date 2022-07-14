@@ -2,10 +2,11 @@
  * @Author: ylyu
  * @Date: 2021-12-28 21:08:35
  * @LastEditors: ylyu
- * @LastEditTime: 2022-01-17 17:27:17
+ * @LastEditTime: 2022-07-14 16:19:42
  * @Description:
  */
-export { default as Foo } from './components/icon';
 export { default as Button } from './components/button';
-export { default as Space } from './components/space';
+export { default as Icon } from './components/icon';
+export { default as Space } from './components/layout/space';
 export { default as Divider } from './components/layout/Divider';
+export { default as Grid } from './components/layout/Grid';

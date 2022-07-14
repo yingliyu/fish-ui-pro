@@ -1,5 +1,5 @@
 ---
-title: Typography
+title: Typography 排版
 
 group:
   path: /components

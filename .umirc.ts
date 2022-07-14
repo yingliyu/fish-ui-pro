@@ -2,7 +2,7 @@
  * @Author: ylyu
  * @Date: 2022-01-13 16:40:45
  * @LastEditors: ylyu
- * @LastEditTime: 2022-01-19 15:13:43
+ * @LastEditTime: 2022-07-14 16:18:10
  * @Description:
  */
 import { defineConfig } from 'dumi';
@@ -34,7 +34,7 @@ function getMenus(opts: { lang?: string; base: '/components' | '/docs' }) {
           '/components/layout/Divider',
           '/components/layout/Grid',
           '/components/layout/Layout',
-          '/components/space',
+          '/components/layout/space',
         ],
       },
     ],
@@ -102,7 +102,7 @@ export default defineConfig({
     // ],
   ],
   chainWebpack: (config, { webpack }) => {
-    console.log('webpack Config===', config.toConfig());
+    // console.log('webpack Config===', config.toConfig());
     config.merge({
       module: {
         rules: [

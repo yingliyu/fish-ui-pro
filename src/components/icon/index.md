@@ -1,5 +1,5 @@
 ---
-title: Icon
+title: Icon 图标
 
 group:
   path: /components
@@ -11,9 +11,9 @@ group:
 
 ```tsx
 import React from 'react';
-import { Foo } from 'fish-ui';
+import { Icon } from 'fish-ui';
 
-export default () => <Foo title="First Demo" />;
+export default () => <Icon title="Demo" />;
 ```
 
 More skills for writing demo: https://d.umijs.org/guide/basic#write-component-demo
