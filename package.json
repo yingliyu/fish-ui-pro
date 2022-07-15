@@ -1,9 +1,9 @@
 {
   "private": false,
   "name": "fish-ui-pro",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "🎉A react ui component library based on AntDesign",
-  "author": "yingliyu",
+  "author": "yyl",
   "license": "MIT",
   "keywords": [
     "React",
