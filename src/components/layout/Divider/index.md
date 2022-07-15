@@ -11,7 +11,7 @@ group:
 
 ```tsx
 import React from 'react';
-import { Divider } from 'fish-ui';
+import { Divider } from 'fish-ui-pro';
 
 export default () => (
   <>

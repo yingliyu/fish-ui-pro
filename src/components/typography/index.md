@@ -11,7 +11,7 @@ Demo:
 
 ```tsx
 import React from 'react';
-import { Foo } from 'fish-ui';
+import { Icon } from 'fish-ui-pro';
 
-export default () => <Foo title="First Demo" />;
+export default () => <Icon title="First Demo" />;
 ```
