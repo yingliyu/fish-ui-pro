@@ -9,10 +9,10 @@
     "React",
     "Component"
   ],
-  "homepage": "https://yingliyu.github.io/fish-ui",
+  "homepage": "https://yingliyu.github.io/fish-ui-pro",
   "repository": {
     "type": "git",
-    "url": "https://github.com/yingliyu/fish-ui.git"
+    "url": "https://github.com/yingliyu/fish-ui-pro.git"
   },
   "files": [
     "docs-dist",
