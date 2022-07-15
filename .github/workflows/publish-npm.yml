@@ -1,20 +1,72 @@
 name: Publish Package to NPM
 
 on:
-  push:
-    branches: [master]
+  push:  # 指定触发事件
+    branches:
+      - master  # 指定触发 action 的分支
 
 jobs:
-  build:
+  main:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      # Setup .npmrc file to publish to npm
-      - uses: actions/setup-node@v3
+
+		# 拉取github仓库代码
+    - name: Checkout
+      uses: actions/checkout@v2
+      with:
+        persist-credentials: false
+
+		# 执行依赖安装
+    - name: 安装依赖
+      run: |
+        npm install
+
+		# 执行构建步骤
+		- name: 构建
+      run: |
+			  npm run build
+
+    # 执行部署
+    - name: 发布到 NPM
+      uses: actions/setup-node@v1
         with:
-          node-version: 14.x
-          registry-url: 'https://registry.npm.taobao.org'
-      - run: npm install
-      - run: npm publish
+          node-version: 12
+          registry-url: https://registry.npmjs.org/  # 设置发包npm地址仓库
+      - run: npm publish # 执行发布
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}} # 刚刚设置的 NPM_TOKEN
+#  publish-to-gpr:
+#    runs-on: ubuntu-latest
+#    steps:
+#      - name: Checkout release branch code
+#        uses: actions/checkout@v2
+#
+#      - name: Use Node.js
+#        uses: actions/setup-node@v1.4.2
+#        with:
+#          node-version: 12
+#          registry-url: https://npm.pkg.github.com/
+#
+#      - name: Publish to GitHub Package
+#        run: npm publish
+#        env:
+#          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+# on:
+#   push:
+#     branches: [master]
+
+# jobs:
+#   build:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - uses: actions/checkout@v3
+#       # Setup .npmrc file to publish to npm
+#       - uses: actions/setup-node@v3
+#         with:
+#           node-version: 14.x
+#           registry-url: 'https://registry.npm.taobao.org'
+#       - run: npm install
+#       - run: npm publish
+#         env:
+#           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
