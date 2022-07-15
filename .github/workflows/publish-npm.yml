@@ -24,7 +24,7 @@ jobs:
 # 执行构建步骤
     - name: 构建
       run: |
-	yarn build
+	      yarn build
 
     # 执行部署
     - name: 发布到 NPM
