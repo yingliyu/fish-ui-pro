@@ -1,7 +1,7 @@
 ---
 hero:
-  title: fish-ui
-  desc: fish-ui site example
+  title: fish-ui-pro
+  desc: fish-ui-pro site example
   actions:
     - text: Getting Started
       link: /components

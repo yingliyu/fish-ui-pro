@@ -2,7 +2,7 @@
  * @Author: ylyu
  * @Date: 2022-01-13 16:40:45
  * @LastEditors: ylyu
- * @LastEditTime: 2022-07-15 16:06:39
+ * @LastEditTime: 2022-07-15 16:21:05
  * @Description:
  */
 import { defineConfig } from 'dumi';
@@ -51,7 +51,7 @@ function getMenus(opts: { lang?: string; base: '/components' | '/docs' }) {
 export default defineConfig({
   title: 'fish-ui-pro',
   hash: true,
-  base: '/fish-ui',
+  base: '/fish-ui-pro',
   publicPath: '/fish-ui-pro/',
   favicon: 'https://img.alicdn.com/tfs/TB1YHEpwUT1gK0jSZFhXXaAtVXa-28-27.svg',
   logo: 'https://img.alicdn.com/tfs/TB1YHEpwUT1gK0jSZFhXXaAtVXa-28-27.svg',

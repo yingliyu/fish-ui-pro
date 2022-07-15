@@ -34,7 +34,7 @@ More skills for writing demo: https://d.umijs.org/guide/basic#write-component-de
 
 ```tsx
 import React from 'react';
-import { Divider } from 'fish-ui';
+import { Divider } from 'fish-ui-pro';
 export default () => (
   <>
     <Divider dashed />
