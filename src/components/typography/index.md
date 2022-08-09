@@ -5,7 +5,7 @@ group:
   path: /components
 ---
 
-## Icon
+## Typography 排版
 
 Demo:
 
