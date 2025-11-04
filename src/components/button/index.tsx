@@ -6,7 +6,7 @@
  * @Description:
  */
 import React from 'react';
-import { Button as AntdButton } from 'antd';
+import { Button } from 'antd';
 import classNames from 'classnames';
 import './index.less';
 
@@ -14,16 +14,24 @@ declare type ButtonHTMLType = 'submit' | 'button' | 'reset';
 declare const ButtonTypes: ['default', 'primary', 'ghost', 'dashed', 'link', 'text'];
 export declare type ButtonType = typeof ButtonTypes[number];
 
-interface IABSButtonProps {
-  /**设置按钮载入状态 */
+interface IFSButtonProps {
+  /**自定义类名 */
+  className?: string;
+  /**
+   * 设置按钮载入状态
+   * @default false
+   */
   loading?: boolean;
   /**
    * 设置危险按钮
    * @default false
    */
   danger?: boolean;
-  className?: string;
-  /**按钮类型 */
+
+  /**
+   * 按钮类型
+   * @default default
+   */
   type?: ButtonType;
   style?: React.CSSProperties;
   /**设置按钮的图标组件 */
@@ -34,15 +42,29 @@ interface IABSButtonProps {
    * @default false
    */
   disabled?: boolean;
+  /**
+   * 是否是块级按钮，占据一整行
+   * @default false
+   */
   block?: boolean;
   large?: boolean;
   htmlType?: ButtonHTMLType;
   /**按钮颜色 */
   color?: 'blue' | 'red' | 'yellow' | 'green' | 'white';
+  /**
+   * 幽灵属性，使按钮背景透明
+   * @default false
+   */
+  ghost?: boolean;
+  /**
+   * 点击跳转的地址，指定此属性 button 的行为和 a 链接一致
+   * * @default -
+   */
+  href?: string;
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
 }
 
-const Button: React.FC<IABSButtonProps> = (props: IABSButtonProps) => {
+const FSButton: React.FC<IFSButtonProps> = (props: IFSButtonProps) => {
   const {
     danger,
     loading,
@@ -51,7 +73,7 @@ const Button: React.FC<IABSButtonProps> = (props: IABSButtonProps) => {
     large = false,
     className,
     onClick,
-    type = 'primary',
+    type = 'default',
     icon,
     block = false,
     disabled,
@@ -92,7 +114,7 @@ const Button: React.FC<IABSButtonProps> = (props: IABSButtonProps) => {
 
   return (
     <div className={classes} style={{ display: displayStyle, ...style }}>
-      <AntdButton
+      <Button
         icon={icon}
         onClick={onClick}
         disabled={disabled}
@@ -103,9 +125,9 @@ const Button: React.FC<IABSButtonProps> = (props: IABSButtonProps) => {
         loading={loading}
       >
         {children}
-      </AntdButton>
+      </Button>
     </div>
   );
 };
 
-export default Button;
+export default FSButton;
