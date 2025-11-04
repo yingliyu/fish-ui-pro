@@ -5,7 +5,7 @@
  * @LastEditTime: 2022-07-14 16:19:42
  * @Description:
  */
-export { default as Button } from './components/button';
+export { default as FSButton } from './components/button';
 export { default as Icon } from './components/icon';
 export { default as Space } from './components/layout/space';
 export { default as Divider } from './components/layout/Divider';

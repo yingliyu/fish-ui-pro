@@ -107,7 +107,7 @@ import { FSButton, Space } from 'fish-ui-pro';
 import { SearchOutlined } from '@ant-design/icons';
 export default () => (
   <>
-    <FSButton type="primary" large block>
+    <FSButton large block>
       Primary
     </FSButton>
     <FSButton type="primary" block>
