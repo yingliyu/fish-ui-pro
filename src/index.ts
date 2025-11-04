@@ -6,7 +6,7 @@
  * @Description:
  */
 export { default as FSButton } from './components/button';
-export { default as Icon } from './components/icon';
+export { default as FSIcon } from './components/icon';
 export { default as Space } from './components/layout/space';
 export { default as Divider } from './components/layout/Divider';
 export { default as Grid } from './components/layout/Grid';
