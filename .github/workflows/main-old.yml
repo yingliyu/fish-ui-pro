@@ -11,10 +11,7 @@ jobs:
     runs-on: ubuntu-latest # 运行环境，可选 ubuntu-latest, ubuntu-18.04, ubuntu-16.04, windows-latest, windows-2019, windows-2016, macOS-latest, macOS-10.14
 
     steps:
-      - name: 配置 SSH
-        uses: webfactory/ssh-agent@v0.5.4
-        with:
-          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+      - uses: actions/checkout@v2
 
       - name: Use Node.js 14.x
         uses: actions/setup-node@v2
@@ -30,12 +27,10 @@ jobs:
       # 发布到 github pages 上
       - name: Auto Deploy
         env:
-          # GH_REF: github.com/yingliyu/fish-ui.git
-          # ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }} 
-          GH_REF: git@github.com:yingliyu/fish-ui-pro.git
-          # github token
-          # GITEE_REF: gitee.com/ylyubook/fish-ui.git
-          # GITEE_TOKEN: ${{ secrets.GITEE_TOKEN}} # gitee token
+          GH_REF: github.com/yingliyu/fish-ui.git
+          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }} # github token
+          GITEE_REF: gitee.com/ylyubook/fish-ui.git
+          GITEE_TOKEN: ${{ secrets.GITEE_TOKEN}} # gitee token
         run: |
           git config --global user.name "yingliyu"
           git config --global user.email "404997046@qq.com"
@@ -48,6 +43,6 @@ jobs:
           git add .
           git commit -m ":construction_worker:CI built at `date +"%Y-%m-%d %H:%M:%S"`"
           # GitHub Pages
-          git push origin gh-pages:gh-pages
+          git push --force --quiet "https://${ACCESS_TOKEN}@${GH_REF}" gh-pages:gh-pages
           # Gitee Pages 
-          # git push --force --quiet "https://ylyubook:${GITEE_TOKEN}@${GITEE_REF}" gh-pages:gh-pages
+          git push --force --quiet "https://ylyubook:${GITEE_TOKEN}@${GITEE_REF}" gh-pages:gh-pages
