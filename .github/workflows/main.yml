@@ -14,14 +14,19 @@ jobs:
       - name: 配置 SSH
         uses: webfactory/ssh-agent@v0.5.4
         with:
-          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}  # 引用仓库中配置的私钥 Secret
+
+           # 步骤 2：验证 SSH 连接（可选，用于调试）
+      - name: 测试与 GitHub 的 SSH 连接
+        run: ssh -T git@github.com  # 测试能否通过 SSH 连接 GitHub
+        # 成功提示：Hi <用户名>! You've successfully authenticated...
 
       - name: Use Node.js 14.x
         uses: actions/setup-node@v2
         with:
           node-version: 14.x
 
-      - name: Setup  env
+      - name: npm install 安装依赖包
         run: |
           npm install
       - name: Generate public files
