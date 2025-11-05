@@ -7,7 +7,7 @@ group:
 
 ## Icon 图标
 
-[antd@4.x 图标](https://4x.ant.design/components/icon/#API) :
+使用[antd@4.x 图标](https://4x.ant.design/components/icon/#API) :
 
 ```tsx
 import React from 'react';
@@ -15,6 +15,20 @@ import { FSIcon, Space } from 'fish-ui-pro';
 
 export default () => (
   <Space>
+    <FSIcon name="EyeOutlined" />
+    <FSIcon name="FormOutlined" />
+    <FSIcon name="StepBackwardOutlined" />
+    <FSIcon name="StepForwardOutlined" />
+    <FSIcon name="FastBackwardOutlined" />
+    <FSIcon name="FastForwardOutlined" />
+    <FSIcon name="DownOutlined" />
+    <FSIcon name="UpOutlined" />
+    <FSIcon name="LeftOutlined" />
+    <FSIcon name="RightOutlined" />
+    <FSIcon name="CaretUpOutlined" />
+    <FSIcon name="CaretDownOutlined" />
+    <FSIcon name="CaretLeftOutlined" />
+    <FSIcon name="CaretRightOutlined" />
     <FSIcon name="SmileOutlined" />
     <FSIcon name="SearchOutlined" />
     <FSIcon name="LoadingOutlined" />
@@ -22,26 +36,11 @@ export default () => (
     <FSIcon name="SettingFilled" />
     <FSIcon name="RobotOutlined" />
     <FSIcon name="GiftOutlined" />
-    <FSIcon name="EyeOutlined" />
-    <FSIcon name="FormOutlined" />
-    <FSIcon name="StepBackwardOutlined" />
-    <FSIcon name="StepForwardOutline" />
-
-    <FSIcon name="FastBackwardOutline" />
-    <FSIcon name="FastForwardOutline" />
-    <FSIcon name="ShrinkOutline" />
-    <FSIcon name="ArrowsAltOutline" />
-    <FSIcon name="DownOutline" />
-    <FSIcon name="UpOutlined" />
-    <FSIcon name="LeftOutline" />
-    <FSIcon name="RightOutline" />
-    <FSIcon name="CaretUpOutline" />
-    <FSIcon name="CaretDownOutline" />
   </Space>
 );
 ```
 
-Iconfont 图标:
+支持使用 Iconfont 图标:
 
 ```tsx
 import React from 'react';

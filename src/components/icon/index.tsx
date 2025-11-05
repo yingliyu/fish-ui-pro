@@ -5,31 +5,7 @@
  * @LastEditTime: 2022-08-09 15:28:41
  * @Description:
  */
-// import Icon, { HomeOutlined } from '@ant-design/icons';
-// import type { CustomIconComponentProps } from '@ant-design/icons/lib/components/Icon';
-// import { Space } from 'antd';
-// import React from 'react';
-// export interface IFSIconProps {
-//   className?: string;
-//   rotate?: number;
-//   twoToneColor?: string;
-//   style?: React.CSSProperties;
-//   spin?: boolean; // 是否有旋转动画
-//   onClick?: (e: any) => void;
-//   size?: number;
-// // }
-// const FSIcon: React.FC<IFSIconProps> = (props: IFSIconProps) => {
-//   const { twoToneColor, className, style, onClick, size } = props;
-//   return <div>
-//     {/* <h1>{title}</h1> */}
-//     <Icon
-//       component={HomeOutlined as any}
-//       className={className}
-//       style={{ fontSize: size, ...style }}
-//       onClick={onClick}
-//     />
-//   </div>
-// };
+
 import React from 'react';
 import * as AntdIcons from '@ant-design/icons';
 import { Tooltip, ConfigProvider } from 'antd';
@@ -41,6 +17,9 @@ type AntdIconType = keyof typeof AntdIcons;
 export type IconSource = 'antd' | 'iconfont';
 // 默认 iconfont 配置
 export interface IconfontConfig {
+  /**iconfont字体图标js链接
+   * @default //at.alicdn.com/t/c/font_xxx.js
+   */
   scriptUrl: string | string[];
   extraCommonProps?: Record<string, any>;
 }
@@ -58,7 +37,10 @@ const iconfontCache = new Map<string, ReturnType<typeof createFromIconfontCN>>()
 export interface IconProps {
   /** 图标名称 */
   name: AntdIconType;
-  /** 图标源类型 */
+  /**
+   * 图标源类型 antd | iconfont
+   * @default antd
+   * */
   source?: IconSource;
   /** 自定义 iconfont 配置 */
   iconfontConfig?: IconfontConfig;
@@ -80,7 +62,10 @@ export interface IconProps {
   color?: string;
   /** 图标大小 */
   size?: number | string;
-  /** 是否禁用 */
+  /**
+   * 是否禁用
+   * @default false
+   *  */
   disabled?: boolean;
   /** 双色图标主色 */
   twoToneColor?: string;
@@ -88,7 +73,7 @@ export interface IconProps {
   fallback?: React.ReactNode;
 }
 
-const FSIcon: React.FC<IconProps> = (props: IconProps) => {
+const FSIcon = (props: IconProps) => {
   const {
     name,
     source = 'antd',
@@ -162,7 +147,7 @@ const FSIcon: React.FC<IconProps> = (props: IconProps) => {
   const renderIconfontIcon = () => {
     const IconfontComponent = getIconfontComponent();
 
-    const iconProps = {
+    const iconProps: any = {
       type: name,
       className,
       style: {
@@ -272,7 +257,7 @@ const FSIcon: React.FC<IconProps> = (props: IconProps) => {
 
   return iconElement;
 };
-// 工具函数：添加全局 iconfont 配置
+/**工具函数：添加全局 iconfont 配置*/
 export const setDefaultIconfontConfig = (config: IconfontConfig) => {
   Object.assign(DEFAULT_ICONFONT_CONFIG, config);
   // 清除缓存以便重新创建
