@@ -39,7 +39,7 @@ jobs:
         run: |
           git config --global user.name "yingliyu"
           git config --global user.email "404997046@qq.com"
-          git clone https://${GH_REF} .deploy_git
+          git clone ${GH_REF} .deploy_git
           cd .deploy_git
           git checkout gh-pages
           cd ../
