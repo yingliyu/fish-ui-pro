@@ -12,7 +12,7 @@ group:
 ```tsx
 import React from 'react';
 import { FSIcon, Space } from 'fish-ui-pro';
-
+// 使用默认字体库配置
 export default () => (
   <Space>
     <FSIcon name="EyeOutlined" />
@@ -47,6 +47,37 @@ export default () => (
 import React from 'react';
 import { FSIcon, Space, iconConfig } from 'fish-ui-pro';
 
+// 在应用初始化时配置全局 iconfont，使用自定义字体库配置
+iconConfig.setIconfontConfig({
+  scriptUrl: [
+    '//at.alicdn.com/t/c/font_1379935_voy8wl7xryr.js', // 阿里巴巴矢量图标库项目地址
+    '//at.alicdn.com/t/c/font_1307587_7fdqa1zvwos.js',
+  ],
+  extraCommonProps: {
+    style: {
+      verticalAlign: '-0.125em',
+    },
+  },
+});
+export default () => (
+  <Space>
+    <FSIcon name="icon-shiwu" source="iconfont" />
+    <FSIcon name="icon-jinkouchongdiaoyinpin" source="iconfont" />
+    <FSIcon name="icon-search" source="iconfont" />
+    <FSIcon name="icon-dingwei" source="iconfont" />
+    <FSIcon name="icon-chaoshi" source="iconfont" />
+    <FSIcon name="icon-meishi" source="iconfont" />
+    <FSIcon name="icon-shuiguo" source="iconfont" />
+    <FSIcon name="icon-pao" source="iconfont" />
+    <FSIcon name="icon-jintieshenqing-01" source="iconfont" />
+  </Space>
+);
+```
+
+```tsx
+import React from 'react';
+import { FSIcon, Space, iconConfig } from 'fish-ui-pro';
+
 // 在应用初始化时配置全局 iconfont
 iconConfig.setIconfontConfig({
   scriptUrl: [
@@ -61,15 +92,6 @@ iconConfig.setIconfontConfig({
 });
 export default () => (
   <Space>
-    {/* <FSIcon name="icon-shiwu" source="iconfont" />
-    <FSIcon name="icon-jinkouchongdiaoyinpin" source="iconfont" />
-    <FSIcon name="icon-search" source="iconfont" />
-    <FSIcon name="icon-dingwei" source="iconfont" />
-    <FSIcon name="icon-chaoshi" source="iconfont" />
-    <FSIcon name="icon-meishi" source="iconfont" />
-    <FSIcon name="icon-shuiguo" source="iconfont" />
-    <FSIcon name="icon-pao" source="iconfont" />
-    <FSIcon name="icon-jintieshenqing-01" source="iconfont" /> */}
     <FSIcon name="el-icon-kf-ai53" source="iconfont" />
     <FSIcon name="el-icon-kf-daohangshouqi-" source="iconfont" />
     <FSIcon name="el-icon-kf-weibiaoti25" source="iconfont" />
