@@ -1,0 +1,1 @@
+(self["webpackChunkfish_ui_pro"]=self["webpackChunkfish_ui_pro"]||[]).push([[324],{34621:function(){},38663:function(){},25324:function(u,i,n){"use strict";n.r(i);n(38663),n(34621)}}]);
