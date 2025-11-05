@@ -18,7 +18,7 @@ jobs:
 
            # 步骤 2：验证 SSH 连接（可选，用于调试）
       - name: 测试与 GitHub 的 SSH 连接
-        run: ssh -T git@github.com  # 测试能否通过 SSH 连接 GitHub
+        run: ssh -T git@github.com || true  # 测试能否通过 SSH 连接 GitHub
         # 成功提示：Hi <用户名>! You've successfully authenticated...
 
       - name: Use Node.js 14.x
