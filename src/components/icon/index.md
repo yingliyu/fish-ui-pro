@@ -16,11 +16,11 @@ import { FSIcon, Space } from 'fish-ui-pro';
 export default () => (
   <Space>
     <FSIcon name="EyeOutlined" />
-    <FSIcon name="FormOutlined" />
-    <FSIcon name="StepBackwardOutlined" />
-    <FSIcon name="StepForwardOutlined" />
-    <FSIcon name="FastBackwardOutlined" />
-    <FSIcon name="FastForwardOutlined" />
+    <FSIcon name="FormOutlined" color="#1980ff" />
+    <FSIcon name="StepBackwardOutlined" color="#1980ff" />
+    <FSIcon name="StepForwardOutlined" color="#1980ff" />
+    <FSIcon name="FastBackwardOutlined" color="#1980ff" />
+    <FSIcon name="FastForwardOutlined" color="#1980ff" />
     <FSIcon name="DownOutlined" />
     <FSIcon name="UpOutlined" />
     <FSIcon name="LeftOutlined" />
@@ -29,13 +29,14 @@ export default () => (
     <FSIcon name="CaretDownOutlined" />
     <FSIcon name="CaretLeftOutlined" />
     <FSIcon name="CaretRightOutlined" />
-    <FSIcon name="SmileOutlined" />
+    <FSIcon name="SmileOutlined" color="#faad14" />
     <FSIcon name="SearchOutlined" />
     <FSIcon name="LoadingOutlined" />
-    <FSIcon name="SyncOutlined" />
-    <FSIcon name="SettingFilled" />
-    <FSIcon name="RobotOutlined" />
-    <FSIcon name="GiftOutlined" />
+    <FSIcon name="SyncOutlined" color="#52cd1a" />
+    <FSIcon name="SettingFilled" color="#1980ff" />
+    <FSIcon name="RobotOutlined" color="#1980ff" />
+    <FSIcon name="GiftOutlined" color="#ff4d4f" />
+    <FSIcon name="GiftOutlined" color="#ff4d4f" rotate={90} />
   </Space>
 );
 ```
@@ -50,6 +51,7 @@ import { FSIcon, Space, iconConfig } from 'fish-ui-pro';
 iconConfig.setIconfontConfig({
   scriptUrl: [
     '//at.alicdn.com/t/c/font_1379935_voy8wl7xryr.js', // 阿里巴巴矢量图标库项目地址
+    '//at.alicdn.com/t/c/font_1307587_7fdqa1zvwos.js',
   ],
   extraCommonProps: {
     style: {
@@ -75,11 +77,16 @@ export default () => (
     <FSIcon name="el-icon-kf-wrong" source="iconfont" />
     <FSIcon name="el-icon-kf-right" source="iconfont" />
     <FSIcon name="el-icon-kf-adduser" source="iconfont" />
-    <FSIcon name="el-icon-kf-piechart" source="iconfont" />
+    <FSIcon name="el-icon-kf-piechart" source="iconfont" color="#faad14" />
     <FSIcon name="el-icon-kf-setting" source="iconfont" />
-    <FSIcon name="el-icon-kf-photo" source="iconfont" />
-    <FSIcon name="el-icon-kf-right2" source="iconfont" />
-    <FSIcon name="el-icon-kf-gantanhao" source="iconfont" />
+    <FSIcon name="el-icon-kf-photo" source="iconfont" color="#1980ff" />
+    <FSIcon name="el-icon-kf-right2" source="iconfont" color="#52cd1a" />
+    <FSIcon name="el-icon-kf-gantanhao" source="iconfont" color="#ff4d4f" />
+
+    <FSIcon name="iconfire" source="iconfont" size={20} color="red" />
+    <FSIcon name="iconzhuanli" source="iconfont" size={20} color="#1980ff" />
+    <FSIcon name="iconfuhao-zhongwen" source="iconfont" size={20} />
+    <FSIcon name="iconfuhao-yingwen" source="iconfont" size={20} />
   </Space>
 );
 ```

@@ -1,0 +1,39 @@
+@import '~antd/dist/antd.less';
+// @import '~antd/lib/style/themes/default.less';
+// @import '~antd/es/style/themes/default.less';
+
+.color(@bg, @bgHover, @bgActive) when (default()) {
+  .ant-btn {
+    color: @text-color-inverse;
+    background: @bg;
+    border-color: @bg;
+    &:hover,
+    &:focus {
+      color: @text-color-inverse;
+      background: @bgHover;
+      border-color: @bgHover;
+    }
+    &:active {
+      color: @text-color-inverse;
+      background: @bgActive;
+      border-color: @bgActive;
+    }
+  }
+}
+
+.fish-btn {
+  &.fish-btn-large.fish-btn-block {
+    width: 200px;
+  }
+  &.fish-btn-link {
+    .ant-btn-link {
+      padding: 0;
+    }
+  }
+  &.fish-yellow-btn {
+    .color(@warning-color, @gold-5, @gold-7);
+  }
+  &.fish-green-btn {
+    .color(@success-color, @green-5, @green-7);
+  }
+}
