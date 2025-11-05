@@ -23,6 +23,10 @@ export interface IconfontConfig {
   scriptUrl: string | string[];
   extraCommonProps?: Record<string, any>;
 }
+// 使用模块变量来存储配置，而不是导出设置函数
+let globalIconfontConfig: IconfontConfig = {
+  scriptUrl: [],
+};
 // 默认图标源配置
 const DEFAULT_ICONFONT_CONFIG: IconfontConfig = {
   scriptUrl: [
@@ -96,18 +100,21 @@ const FSIcon = (props: IconProps) => {
   const { getPrefixCls } = React.useContext(ConfigProvider.ConfigContext);
   const prefixCls = getPrefixCls('icon');
   const [error, setError] = React.useState(false);
-  // 获取 Iconfont 组件
+  // 获取 Iconfont 组件 - 优先使用组件级别的配置，其次使用全局配置
   const getIconfontComponent = React.useCallback(() => {
-    if (!iconfontConfig) {
-      return DefaultIconfont;
+    const config = iconfontConfig || globalIconfontConfig;
+
+    // 如果没有配置 scriptUrl，返回 null
+    if (!config.scriptUrl || config.scriptUrl.length === 0) {
+      return null;
     }
 
-    const configKey = JSON.stringify(iconfontConfig);
+    const configKey = JSON.stringify(config);
     if (iconfontCache.has(configKey)) {
       return iconfontCache.get(configKey)!;
     }
 
-    const IconfontComponent = createFromIconfontCN(iconfontConfig);
+    const IconfontComponent = createFromIconfontCN(config);
     iconfontCache.set(configKey, IconfontComponent);
     return IconfontComponent;
   }, [iconfontConfig]);
@@ -146,7 +153,12 @@ const FSIcon = (props: IconProps) => {
   // 渲染 Iconfont 图标
   const renderIconfontIcon = () => {
     const IconfontComponent = getIconfontComponent();
-
+    if (!IconfontComponent) {
+      console.warn(
+        'Iconfont is not configured. Please set global Iconfont config or provide iconfontConfig prop.',
+      );
+      return null;
+    }
     const iconProps: any = {
       type: name,
       className,
@@ -257,11 +269,14 @@ const FSIcon = (props: IconProps) => {
 
   return iconElement;
 };
-/**工具函数：添加全局 iconfont 配置*/
-export const setDefaultIconfontConfig = (config: IconfontConfig) => {
-  Object.assign(DEFAULT_ICONFONT_CONFIG, config);
-  // 清除缓存以便重新创建
-  iconfontCache.clear();
+// 导出配置管理对象
+export const iconConfig = {
+  setIconfontConfig: (config: IconfontConfig) => {
+    globalIconfontConfig = config;
+    // 清除缓存以便重新创建
+    iconfontCache.clear();
+  },
+  getIconfontConfig: () => ({ ...globalIconfontConfig }),
 };
 
 // 工具函数：获取所有可用的 Antd 图标名称

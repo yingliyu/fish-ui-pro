@@ -44,11 +44,22 @@ export default () => (
 
 ```tsx
 import React from 'react';
-import { FSIcon, Space } from 'fish-ui-pro';
+import { FSIcon, Space, iconConfig } from 'fish-ui-pro';
 
+// 在应用初始化时配置全局 iconfont
+iconConfig.setIconfontConfig({
+  scriptUrl: [
+    '//at.alicdn.com/t/c/font_1379935_voy8wl7xryr.js', // 阿里巴巴矢量图标库项目地址
+  ],
+  extraCommonProps: {
+    style: {
+      verticalAlign: '-0.125em',
+    },
+  },
+});
 export default () => (
   <Space>
-    <FSIcon name="icon-shiwu" source="iconfont" />
+    {/* <FSIcon name="icon-shiwu" source="iconfont" />
     <FSIcon name="icon-jinkouchongdiaoyinpin" source="iconfont" />
     <FSIcon name="icon-search" source="iconfont" />
     <FSIcon name="icon-dingwei" source="iconfont" />
@@ -56,7 +67,19 @@ export default () => (
     <FSIcon name="icon-meishi" source="iconfont" />
     <FSIcon name="icon-shuiguo" source="iconfont" />
     <FSIcon name="icon-pao" source="iconfont" />
-    <FSIcon name="icon-jintieshenqing-01" source="iconfont" />
+    <FSIcon name="icon-jintieshenqing-01" source="iconfont" /> */}
+    <FSIcon name="el-icon-kf-ai53" source="iconfont" />
+    <FSIcon name="el-icon-kf-daohangshouqi-" source="iconfont" />
+    <FSIcon name="el-icon-kf-weibiaoti25" source="iconfont" />
+    <FSIcon name="el-icon-kf-edit-square" source="iconfont" />
+    <FSIcon name="el-icon-kf-wrong" source="iconfont" />
+    <FSIcon name="el-icon-kf-right" source="iconfont" />
+    <FSIcon name="el-icon-kf-adduser" source="iconfont" />
+    <FSIcon name="el-icon-kf-piechart" source="iconfont" />
+    <FSIcon name="el-icon-kf-setting" source="iconfont" />
+    <FSIcon name="el-icon-kf-photo" source="iconfont" />
+    <FSIcon name="el-icon-kf-right2" source="iconfont" />
+    <FSIcon name="el-icon-kf-gantanhao" source="iconfont" />
   </Space>
 );
 ```
