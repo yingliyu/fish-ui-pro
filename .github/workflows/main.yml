@@ -9,19 +9,29 @@ jobs:
   build: # job id
     name: Build and publish gh-pages # job 名，不写默认使用 job id
     runs-on: ubuntu-latest # 运行环境，可选 ubuntu-latest, ubuntu-18.04, ubuntu-16.04, windows-latest, windows-2019, windows-2016, macOS-latest, macOS-10.14
-
     steps:
+      # 关键步骤：拉取当前仓库的 master 分支代码到工作流环境
+      - name: Checkout master branch
+        uses: actions/checkout@v4
+        with:
+          ref: master # 明确拉取 master 分支
+
       - name: 配置 SSH
         uses: webfactory/ssh-agent@v0.5.4
         with:
-          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}  # 引用仓库中配置的私钥 Secret
+
+           # 步骤 2：验证 SSH 连接（可选，用于调试）
+      - name: 测试与 GitHub 的 SSH 连接
+        run: ssh -T git@github.com || true  # 测试能否通过 SSH 连接 GitHub
+        # 成功提示：Hi <用户名>! You've successfully authenticated...
 
       - name: Use Node.js 14.x
         uses: actions/setup-node@v2
         with:
           node-version: 14.x
 
-      - name: Setup  env
+      - name: npm install 安装依赖包
         run: |
           npm install
       - name: Generate public files
@@ -36,10 +46,11 @@ jobs:
           # github token
           # GITEE_REF: gitee.com/ylyubook/fish-ui.git
           # GITEE_TOKEN: ${{ secrets.GITEE_TOKEN}} # gitee token
+          GT_REF: git@gitee.com:ylyubook/fish-ui.git
         run: |
           git config --global user.name "yingliyu"
           git config --global user.email "404997046@qq.com"
-          git clone https://${GH_REF} .deploy_git
+          git clone ${GH_REF} .deploy_git
           cd .deploy_git
           git checkout gh-pages
           cd ../
@@ -48,6 +59,14 @@ jobs:
           git add .
           git commit -m ":construction_worker:CI built at `date +"%Y-%m-%d %H:%M:%S"`"
           # GitHub Pages
-          git push origin gh-pages:gh-pages
-          # Gitee Pages 
+          git push origin gh-pages:gh-pages --force
+          
+          # 临时添加 GitHub 远程地址（不影响本地配置）
+          # git remote add github ${GH_REF}
+          # 推送当前分支到 GitHub 的 gh-pages 分支
+          # git push github HEAD:gh-pages --force
+          # 提交到Gitee Pages 
+          # 临时添加 Gitee 远程地址（替换为你的 Gitee 仓库 SSH 地址）
+          # git remote add gitee ${GT_REF}
+          # git push gitee HEAD:gh-pages --force
           # git push --force --quiet "https://ylyubook:${GITEE_TOKEN}@${GITEE_REF}" gh-pages:gh-pages
