@@ -15,7 +15,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           ref: master # 明确拉取 master 分支
-          
+
       - name: 配置 SSH
         uses: webfactory/ssh-agent@v0.5.4
         with:
@@ -46,6 +46,7 @@ jobs:
           # github token
           # GITEE_REF: gitee.com/ylyubook/fish-ui.git
           # GITEE_TOKEN: ${{ secrets.GITEE_TOKEN}} # gitee token
+          GT_REF: git@gitee.com:ylyubook/fish-ui.git
         run: |
           git config --global user.name "yingliyu"
           git config --global user.email "404997046@qq.com"
@@ -58,6 +59,13 @@ jobs:
           git add .
           git commit -m ":construction_worker:CI built at `date +"%Y-%m-%d %H:%M:%S"`"
           # GitHub Pages
-          git push origin gh-pages:gh-pages --force
-          # Gitee Pages 
+          # git push origin gh-pages:gh-pages --force
+          # 临时添加 GitHub 远程地址（不影响本地配置）
+          git remote add github ${GH_REF}
+          # 推送当前分支到 GitHub 的 gh-pages 分支
+          git push github HEAD:gh-pages --force
+          # 提交到Gitee Pages 
+          # 临时添加 Gitee 远程地址（替换为你的 Gitee 仓库 SSH 地址）
+          git remote add gitee ${GH_REF}
+          git push gitee HEAD:gh-pages --force
           # git push --force --quiet "https://ylyubook:${GITEE_TOKEN}@${GITEE_REF}" gh-pages:gh-pages
